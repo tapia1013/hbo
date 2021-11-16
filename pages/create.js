@@ -27,6 +27,7 @@ export default function CreateUser() {
       users.push(user);
       // decalre list of users in LS
       ls('users', users);
+      router.push('/login')
 
       console.log('users: ', users);
       console.log('lsusers: ', ls('users'));
