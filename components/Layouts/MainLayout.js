@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../UI/Header';
-import SideNav from '../UI/SideNav';
+import Header from '../UI/Header/Header';
+import SideNav from '../UI/SideNav/SideNav';
 
 
 const MainLayout = (props) => {
