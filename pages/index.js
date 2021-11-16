@@ -1,32 +1,28 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import { useEffect } from 'react';
+import { useStateContext } from '../components/HBOProvider';
+import Login from '../components/UI/Login/Login';
+import { useRouter } from 'next/router';
+
+
+
 
 export default function Home() {
+  // this allows us to start using the context in HBOProvider
+  const globalState = useStateContext();
+  // we have to instantiate useRouter
+  const router = useRouter();
+
+  useEffect(() => {
+    const loggedIn = false;
+    if (loggedIn === false) {
+      router.push('/create')
+    }
+  }, [])
+
   return (
     <div>
-      <div className="login-user">
-        <div className="login-user__top">
-          <div className="login-user__logo" />
-          <span className="login-user__title">
-            Who Is Watching?
-          </span>
-        </div>
-
-        <div className="login-user__form">
-          <div className="login-user__user-box">
-            <img className="login-user__user-img" src="/img/nye.JPG" />
-            <div className="login-user__user-name">Nye</div>
-          </div>
-        </div>
-
-        <div className="login-user__buttons">
-          <button className="login-user__adult">
-            Add Addult
-          </button>
-          <button className="login-user__kid">
-            Add Kid
-          </button>
-        </div>
-      </div>
+      <Login />
     </div>
   )
 }
