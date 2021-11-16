@@ -1,5 +1,6 @@
 import React from 'react'
-import Account from '../Account/Account'
+import Account from '../Account/Account';
+import SearchModal from '../SearchModal/SearchModal';
 
 const Header = (props) => {
   return (
@@ -19,6 +20,7 @@ const Header = (props) => {
       </div>
 
       <Account />
+      <SearchModal />
     </header>
   )
 }

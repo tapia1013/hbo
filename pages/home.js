@@ -10,7 +10,6 @@ import PosterView from '../components/UI/PosterView/PosterView';
 
 
 
-
 export default function HomeView() {
   return (
     <MainLayout>
