@@ -16,7 +16,7 @@ const ForYouList = (props) => {
       <div className='foryou-list__thumbnails'>
         {
           loopComp((<div className="foryou-list__thumbnail">
-            <img src="https://mypostercollection.com/wp-content/uploads/2019/07/rickmorty.jpg" />
+            <img src="https://m.media-amazon.com/images/M/MV5BM2M2NDIzOTItZDA1Yy00M2Q4LTk3ZjctZjZmZjUyZWMxM2YyXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_.jpg" />
             <div className="foryou-list__top-layer">
               <i className="fas fa-play" />
             </div>
