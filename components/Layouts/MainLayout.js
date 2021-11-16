@@ -6,8 +6,9 @@ import SideNav from '../UI/SideNav/SideNav';
 const MainLayout = (props) => {
   return (
     <div style={{
-      background: 'linear-gradient(312deg, rgb(103 44 197) 0%, rgb(46, 23, 90) 63%, rgb(13, 9, 40) 100%)',
-      minHeight: '100vh'
+      background: 'linear-gradient(135deg, rgba(0,0,0,1) 55%, rgba(119,30,135,1) 100%)',
+      minHeight: '100vh',
+      backgroundAttachment: 'fixed'
     }}>
       <Header />
       <SideNav />
