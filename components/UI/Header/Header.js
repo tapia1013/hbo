@@ -1,4 +1,5 @@
 import React from 'react'
+import Account from '../Account/Account'
 
 const Header = (props) => {
   return (
@@ -16,6 +17,8 @@ const Header = (props) => {
         <img src="/img/nye.JPG" className="top-header__user-img" />
         <div className="top-header__user-name">Nye</div>
       </div>
+
+      <Account />
     </header>
   )
 }
