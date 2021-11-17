@@ -26,7 +26,7 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
           <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
         </Head>
-        <script src="https://kit.fontawesome.com/d42159e0f7.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/d42159e0f7.js" crossOrigin="anonymous"></script>
         <body>
           <Main />
           <NextScript />
