@@ -16,7 +16,11 @@ export function HBOProvider({ children }) {
     setUser(e.target.value);
   };
 
+  // for opening and closing side menu
+  const [sideNavOpen, setSideNavOpenAction] = useState(false);
 
+  //  for opening and closing top right user account
+  const [accountModalOpen, setAccountModalOpenAction] = useState(false)
 
 
 
@@ -27,6 +31,11 @@ export function HBOProvider({ children }) {
       user,
       createUserAction,
       defaultUserImg,
+      sideNavOpen,
+      setSideNavOpenAction,
+      sideNavOpen,
+      accountModalOpen,
+      setAccountModalOpenAction
     }}>
       {children}
     </StateContext.Provider>
