@@ -7,7 +7,7 @@ const FeaturedMedia = (props) => {
         className="featured-media__video"
         width="100%"
         height="100%"
-        src="https://www.youtube.com/embed/QJHY4ggYCk4?autoplay=1&loop=1&start=16"
+        src="https://www.youtube.com/embed/G9CzaN3WyKs?autoplay=1&loop=1&start=16"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       />

@@ -3,7 +3,12 @@ import { useEffect } from 'react';
 import { useStateContext } from '../components/HBOProvider';
 import Login from '../components/UI/Login/Login';
 import { useRouter } from 'next/router';
-
+import MainLayout from '../components/Layouts/MainLayout';
+import FeaturedMedia from '../components/UI/FeaturedMedia/FeaturedMedia';
+import ForYouList from '../components/UI/ForYouList/ForYouList';
+import JustAdded from '../components/UI/JustAdded/JustAdded';
+import PosterView from '../components/UI/PosterView/PosterView';
+import AuthCheck from '../components/AuthCheck';
 
 
 
@@ -13,20 +18,16 @@ export default function Home() {
   // we have to instantiate useRouter
   const router = useRouter();
 
-  // useEffect(() => {
-  //   const loggedIn = false;
-  //   if (loggedIn === false) {
-  //     router.push('/create')
-  //   }
-  // }, [])
-
   useEffect(() => {
 
-  }, [])
+  }, []);
 
-  return (
-    <div>
-      SHOW HOME PAGE
-    </div>
-  )
+  return AuthCheck(
+    <MainLayout>
+      <FeaturedMedia />
+      <ForYouList />
+      <JustAdded />
+      <PosterView />
+    </MainLayout>
+  );
 }

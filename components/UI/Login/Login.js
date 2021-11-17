@@ -38,6 +38,7 @@ const Login = () => {
 
   // pass in users id
   const selectUser = (id) => {
+    // console.log(id);
     // pass in new key to ls which is the active user id
     ls('activeUID', id)
     router.push('/')
@@ -51,7 +52,7 @@ const Login = () => {
           <div
             className="login-user__user-box"
             key={user.id}
-            onClick={selectUser}
+            onClick={() => selectUser(user.id)}
           >
             <img className="login-user__user-img" src="/img/nye.JPG" />
             <div className="login-user__user-name">{user.user}</div>
