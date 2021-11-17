@@ -24,14 +24,15 @@ export default function Home() {
 
   }, []);
 
+
   return AuthCheck(
     <MainLayout>
       <FeaturedMedia />
       <MediaRow title="Movies" type="large-v" endpoint="" />
       <MediaRow title="Series" type="small-h" endpoint="" />
       <MediaRow title="Action" type="small-v" endpoint="" />
-      <MediaRow title="Horror" type="large-h" endpoint="" />
-      <MediaRow title="Sci-Fi" type="small-v" endpoint="" />
+      <MediaRow title="Horror" type="small-v" endpoint="" />
+      <MediaRow title="Sci-Fi" type="large-v" endpoint="" />
       <MediaRow title="Animations" type="large-h" endpoint="" />
       <MediaRow title="Drama" type="small-v" endpoint="" />
     </MainLayout>
