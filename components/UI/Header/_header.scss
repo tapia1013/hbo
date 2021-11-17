@@ -36,6 +36,14 @@
     }
   }
   
+  &__menu-btn {
+    cursor: pointer;
+  }
+  
+  &__search-btn {
+    cursor: pointer;
+  }
+  
   // account section
   &__account {
     display: flex;

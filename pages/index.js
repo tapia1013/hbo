@@ -5,10 +5,12 @@ import Login from '../components/UI/Login/Login';
 import { useRouter } from 'next/router';
 import MainLayout from '../components/Layouts/MainLayout';
 import FeaturedMedia from '../components/UI/FeaturedMedia/FeaturedMedia';
-import ForYouList from '../components/UI/ForYouList/ForYouList';
-import JustAdded from '../components/UI/JustAdded/JustAdded';
-import PosterView from '../components/UI/PosterView/PosterView';
+// import ForYouList from '../components/UI/ForYouList/ForYouList';
+// import JustAdded from '../components/UI/JustAdded/JustAdded';
+// import PosterView from '../components/UI/PosterView/PosterView';
+import MediaRow from '../components/UI/MediaRow/MediaRow';
 import AuthCheck from '../components/AuthCheck';
+
 
 
 
@@ -25,9 +27,14 @@ export default function Home() {
   return AuthCheck(
     <MainLayout>
       <FeaturedMedia />
-      <ForYouList />
-      <JustAdded />
-      <PosterView />
+      <MediaRow title="Movies" type="large-v" endpoint="" />
+      <MediaRow title="Series" type="small-h" endpoint="" />
+      <MediaRow title="Action" type="small-v" endpoint="" />
+      <MediaRow title="Horror" type="large-h" endpoint="" />
+      <MediaRow title="Sci-Fi" type="small-v" endpoint="" />
+      <MediaRow title="Animations" type="large-h" endpoint="" />
+      <MediaRow title="Drama" type="small-v" endpoint="" />
     </MainLayout>
   );
 }
+

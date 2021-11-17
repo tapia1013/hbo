@@ -20,7 +20,9 @@ export function HBOProvider({ children }) {
   const [sideNavOpen, setSideNavOpenAction] = useState(false);
 
   //  for opening and closing top right user account
-  const [accountModalOpen, setAccountModalOpenAction] = useState(false)
+  const [accountModalOpen, setAccountModalOpenAction] = useState(false);
+
+  const [searchOpen, setSearchOpenAction] = useState(false)
 
 
 
@@ -35,7 +37,9 @@ export function HBOProvider({ children }) {
       setSideNavOpenAction,
       sideNavOpen,
       accountModalOpen,
-      setAccountModalOpenAction
+      setAccountModalOpenAction,
+      searchOpen,
+      setSearchOpenAction
     }}>
       {children}
     </StateContext.Provider>

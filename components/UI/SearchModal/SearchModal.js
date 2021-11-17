@@ -1,6 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { useStateContext } from '../../HBOProvider';
+
 
 const SearchModal = (props) => {
+  const globalState = useStateContext();
+
 
   const loopComp = (comp, digit) => {
     let thumbnails = [];
@@ -11,7 +15,7 @@ const SearchModal = (props) => {
   }
 
   return (
-    <div className="search-modal">
+    <div className={`search-modal ${globalState.searchOpen ? 'search-modal--active' : ''}`}>
       <div className="search-modal__input-group">
         <input
           className="search-modal__input"
@@ -19,7 +23,10 @@ const SearchModal = (props) => {
           type="text"
           placeholder="search for a title"
         />
-        <div className="search-modal__close-btn">
+        <div
+          className="search-modal__close-btn"
+          onClick={() => globalState.setSearchOpenAction(!globalState.searchOpen)}
+        >
           <i className="fas fa-times" />
         </div>
       </div>
