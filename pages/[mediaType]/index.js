@@ -9,6 +9,8 @@ import FeaturedMedia from '../../components/UI/FeaturedMedia/FeaturedMedia';
 import MediaRow from '../../components/UI/MediaRow/MediaRow';
 import AuthCheck from '../../components/AuthCheck';
 import Placeholders from '../../components/UI/Placeholders/Placeholders';
+import GenreNav from '../../components/UI/GenreNav/GenreNav';
+
 
 
 
@@ -34,7 +36,7 @@ export default function Home() {
         type="front"
       /> */}
 
-
+      <GenreNav />
       <LazyLoad offset={-400} placeholder={<Placeholders title="Movies" type="large-v" />}>
         <MediaRow
           title="Movies"
