@@ -7,6 +7,8 @@ import FeaturedMedia from '../../components/UI/FeaturedMedia/FeaturedMedia';
 import MediaRow from '../../components/UI/MediaRow/MediaRow';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import LazyLoad from 'react-lazyload';
+import Placeholders from '../../components/UI/Placeholders/Placeholders';
 
 
 
@@ -29,7 +31,8 @@ export default function SingleMediaPage(props) {
       .catch(function (error) {
         console.log(error);
       })
-  }, []);
+
+  }, [mediaData]); // if we dont enter mediaData when we click on a new movie it wont show but the url will change
 
 
   return AuthCheck(
@@ -41,12 +44,16 @@ export default function SingleMediaPage(props) {
         linkUrl="/movies/id"
         type="single"
       />
-      {/* <MediaRow
-        title="More Like This"
-        type="small-v"
-      />*/}
 
-      <CastInfo />
+      <LazyLoad offset={-400} placeholder={<Placeholders title="Movies" type="large-v" />}>
+        <MediaRow
+          title="Similar To This"
+          type="small-v"
+          endpoint={`movie/${props.query.id}/similar?`}
+        />
+      </LazyLoad>
+
+      <CastInfo mediaId={props.query.id} />
     </MainLayout>
   )
 }
