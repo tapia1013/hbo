@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 // video 24 @ load proper data for genres
 
-
 const GenreNav = (props) => {
   // const globalState = useStateContext();
   const [activeNav, setActiveNav] = useState(false);

@@ -10,12 +10,14 @@ import MediaRow from '../../components/UI/MediaRow/MediaRow';
 import AuthCheck from '../../components/AuthCheck';
 import Placeholders from '../../components/UI/Placeholders/Placeholders';
 import GenreNav from '../../components/UI/GenreNav/GenreNav';
+import axios from 'axios';
+import { shuffleArray } from '../../components/utilities';
 
 
 
 
 
-export default function Home() {
+export default function MediaTypePage() {
   // this allows us to start using the context in HBOProvider
   const globalState = useStateContext();
   // we have to instantiate useRouter
@@ -47,4 +49,36 @@ export default function Home() {
     </MainLayout>
   );
 }
+
+
+
+
+export async function getServerSideProps(context) {
+  let genresData;
+  let featuredData;
+
+  try {
+    genresData = await axios.get(`https://api.themoviedb.org/3/genre/${context.query.mediaType}/list?api_key=c1b0e735ad3ff470f44fa29c9a1e6189`);
+
+    featuredData = await axios.get(`https://api.themoviedb.org/3/discover/${context.query.mediaType}?primary_release_year=2021&api_key=c1b0e735ad3ff470f44fa29c9a1e6189`);
+
+    console.log("genresData");
+    console.log(genresData.data);
+  } catch (error) {
+    console.log("Error");
+    console.log(error);
+  }
+
+  console.log(genresData);
+
+
+  return {
+    props: {
+      genresData: genresData.data.genres,
+      featuredData: shuffleArray(featuredData.data.results)[0],
+      query: context.query
+    }
+  };
+}
+
 

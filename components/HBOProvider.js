@@ -22,7 +22,7 @@ export function HBOProvider({ children }) {
   //  for opening and closing top right user account
   const [accountModalOpen, setAccountModalOpenAction] = useState(false);
 
-  const [searchOpen, setSearchOpenAction] = useState(false)
+  const [searchOpen, setSearchOpenAction] = useState(false);
 
 
 
