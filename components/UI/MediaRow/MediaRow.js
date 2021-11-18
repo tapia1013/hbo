@@ -7,7 +7,8 @@ import { shuffleArray } from '../../utilities';
 const MediaRow = (props) => {
   const [loadingData, setLoadingData] = useState(true);
   const [movies, setMoviesData] = useState([])
-  // let movies = [];
+
+
 
 
   useEffect(() => {
