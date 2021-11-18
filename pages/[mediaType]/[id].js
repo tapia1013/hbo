@@ -54,7 +54,7 @@ export default function SingleMediaPage(props) {
         />
       </LazyLoad>
 
-      <CastInfo mediaType={props.mediaType} mediaId={props.query.id} />
+      <CastInfo mediaId={props.query.id} mediaType={props.query.mediaType} />
     </MainLayout>
   )
 }
@@ -66,7 +66,6 @@ export async function getServerSideProps(context) {
   let mediaData;
 
   try {
-
     mediaData = await axios.get(`https://api.themoviedb.org/3/${context.query.mediaType}/${context.query.id}?api_key=c1b0e735ad3ff470f44fa29c9a1e6189`)
 
   } catch (error) {

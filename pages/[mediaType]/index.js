@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useStateContext } from '../../components/HBOProvider';
 import Login from '../../components/UI/Login/Login';
 import { useRouter } from 'next/router';
@@ -23,9 +23,35 @@ export default function MediaTypePage(props) {
   // we have to instantiate useRouter
   const router = useRouter();
 
-  useEffect(() => {
 
-  }, []);
+
+
+  // show random media for mediatype movies under featuredMedia
+  const showRandomMedia = () => {
+    let thumbType;
+
+    return props.genresData.map((item) => {
+      // give first index of the shuffled array
+      thumbType = shuffleArray(globalState.thumbTypes)[0];
+
+      return (
+        <React.Fragment key={item.id}>
+          <LazyLoad
+            offset={-200}
+            placeholder={<Placeholders title={item.name} type={thumbType} />}
+          >
+            <MediaRow
+              title={item.name}
+              type={thumbType}
+              endpoint={`discover/${props.query.mediaType}?with_genres=${item.id}&sort_by=popularity.desc&primary_release_year=2021`}
+            />
+          </LazyLoad>
+        </React.Fragment>
+      )
+    })
+  }
+
+
 
 
   return AuthCheck(
@@ -38,13 +64,7 @@ export default function MediaTypePage(props) {
       />
 
       <GenreNav mediaType={props.query.MediaType} genresData={props.genresData} />
-      <LazyLoad offset={-400} placeholder={<Placeholders title="Movies" type="large-v" />}>
-        <MediaRow
-          title="Movies"
-          type="large-v"
-          endpoint="discover/movie?sort_by=popularity.desc&primary_release_year=2021"
-        />
-      </LazyLoad>
+      {showRandomMedia()}
     </MainLayout>
   );
 }
