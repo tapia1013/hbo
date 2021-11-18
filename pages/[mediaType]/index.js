@@ -17,7 +17,7 @@ import { shuffleArray } from '../../components/utilities';
 
 
 
-export default function MediaTypePage() {
+export default function MediaTypePage(props) {
   // this allows us to start using the context in HBOProvider
   const globalState = useStateContext();
   // we have to instantiate useRouter
@@ -38,7 +38,7 @@ export default function MediaTypePage() {
         type="front"
       /> */}
 
-      <GenreNav />
+      <GenreNav mediaType={props.query.MediaType} genresData={props.genresData} />
       <LazyLoad offset={-400} placeholder={<Placeholders title="Movies" type="large-v" />}>
         <MediaRow
           title="Movies"
@@ -76,7 +76,7 @@ export async function getServerSideProps(context) {
     props: {
       genresData: genresData.data.genres,
       featuredData: shuffleArray(featuredData.data.results)[0],
-      query: context.query
+      query: context.query,
     }
   };
 }
