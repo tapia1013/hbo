@@ -36,7 +36,7 @@ const FeaturedMedia = (props) => {
 
   return (
     <div
-      className={`featured-media`}
+      className={`featured-media ${props.type === 'single' ? 'featured-media--single' : ''}`}
       onClick={() => globalState.setSideNavOpenAction(false) || globalState.setAccountModalOpenAction(!true)}
     >
       {showMedia()}

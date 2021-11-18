@@ -30,13 +30,12 @@ export default function MediaTypePage(props) {
 
   return AuthCheck(
     <MainLayout>
-      {/* <FeaturedMedia
-        mediaUrl="https://www.youtube.com/embed/G9CzaN3WyKs?autoplay=1&loop=1&start=16"
-        title='Orange'
-        location='In theaters and on HBO MAX. Streaming throughout May 23.'
-        linkUrl="/movie/66958"
-        type="front"
-      /> */}
+      <FeaturedMedia
+        mediaUrl={`https://image.tmdb.org/t/p/w1280${props.featuredData.backdrop_path}`}
+        title={props.query.mediaType === 'movie' ? props.featuredData.title : props.featuredData.name}
+        linkUrl={`/${props.query.mediaType}/${props.featuredData.id}`}
+        type="single"
+      />
 
       <GenreNav mediaType={props.query.MediaType} genresData={props.genresData} />
       <LazyLoad offset={-400} placeholder={<Placeholders title="Movies" type="large-v" />}>
