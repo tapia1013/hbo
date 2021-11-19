@@ -1,18 +1,44 @@
-import React, { useEffect } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { useStateContext } from '../../HBOProvider';
+
 
 
 const SearchModal = (props) => {
   const globalState = useStateContext();
 
+  const [popData, setPopData] = useState([]);
+  const [searchData, setSearchData] = useState([]);
+  const [showResults, setShowResults] = useState(false);
+  const [text, setText] = useState('');
 
-  const loopComp = (comp, digit) => {
-    let thumbnails = [];
-    for (let i = 0; i < digit; i++) {
-      thumbnails.push(comp)
+
+  // const loopComp = (comp, digit) => {
+  //   let thumbnails = [];
+  //   for (let i = 0; i < digit; i++) {
+  //     thumbnails.push(comp)
+  //   }
+  //   return thumbnails;
+  // };
+
+
+
+  // Initial Search for populate data
+  useEffect(async () => {
+    try {
+
+      let popData = await axios.get(
+        `https://api.themoviedb.org/3/discover/movie?primary_release_year=2021&api_key=c1b0e735ad3ff470f44fa29c9a1e6189`
+      );
+
+      setPopData(popData.data.results.filter((item, i) => i < 14));
+
+      setShowResults(false);
+      console.log('popData', popData.data.results);
+    } catch (error) {
+      console.log(error);
     }
-    return thumbnails;
-  };
+  }, [])
 
 
 
@@ -22,7 +48,30 @@ const SearchModal = (props) => {
     } else {
       document.body.style.overflowY = 'auto'
     }
-  }, [globalState.searchOpen])
+  }, [globalState.searchOpen]);
+
+
+
+  // handle input
+  const handleInput = async (e) => {
+    try {
+      // get input search value text
+      setText(e.target.value);
+
+      // handle the actual search
+      let searchData = await axios.get(
+        `https://api.themoviedb.org/3/search/multi?query=${e.target.value}&api_key=c1b0e735ad3ff470f44fa29c9a1e6189`
+      );
+      // set search into state
+      setSearchData(searchData.data.results.filter((item, i) => item.media_type === 'tv' || item.media_type === 'movie')); /***  VIDEO29 COMPLETE SEARCH @ 13:18 */
+      // if everything above comes back good setShowResults to true
+      setShowResults(true);
+    } catch (error) {
+
+      console.log(error);
+
+    }
+  }
 
 
 
@@ -33,6 +82,7 @@ const SearchModal = (props) => {
           className="search-modal__input"
           type="text"
           placeholder="search for a title"
+          onChange={handleInput}
         />
         <div
           className="search-modal__close-btn"
