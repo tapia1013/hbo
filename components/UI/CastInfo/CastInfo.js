@@ -26,7 +26,7 @@ const CastInfo = (props) => {
         console.log('Error Response For cast and crew');
         console.log(error);
       })
-  }, []);
+  }, [props.updateData]);
 
 
   // SHOW CAST CREDIT

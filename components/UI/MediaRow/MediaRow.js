@@ -28,7 +28,10 @@ const MediaRow = (props) => {
         console.log('Error Response For ' + props.title);
         console.log(error);
       })
-  }, []);
+  }, [props.updateData]);
+
+
+
 
 
   const loopComp = (comp, digit) => {
