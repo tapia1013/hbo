@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useStateContext } from '../../HBOProvider';
 
 
@@ -12,7 +12,19 @@ const SearchModal = (props) => {
       thumbnails.push(comp)
     }
     return thumbnails;
-  }
+  };
+
+
+
+  useEffect(() => {
+    if (globalState.searchOpen) {
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.overflowY = 'auto'
+    }
+  }, [globalState.searchOpen])
+
+
 
   return (
     <div className={`search-modal ${globalState.searchOpen ? 'search-modal--active' : ''}`}>

@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { useStateContext } from '../../HBOProvider';
 
 
@@ -13,6 +13,16 @@ const Account = (props) => {
   //   }
   //   return thumbnails;
   // }
+
+
+  useEffect(() => {
+    if (globalState.accountModalOpen) {
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.overflowY = 'auto';
+    }
+  }, [globalState.accountModalOpen])
+
 
 
   return (
