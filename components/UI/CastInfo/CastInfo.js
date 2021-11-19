@@ -18,6 +18,7 @@ const CastInfo = (props) => {
       .then(function (response) {
         setCredits(response.data);
         setLoadingData(false);
+
         console.log('Success Response For cast and crew');
         console.log(response);
       })
