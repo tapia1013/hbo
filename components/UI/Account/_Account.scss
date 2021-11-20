@@ -104,6 +104,7 @@
       display: block;
       margin-bottom: 1rem;
       transition: color .2s ease-in-out;
+      cursor: pointer;
       
       // if it has class --active and or being hover do this
       &.active,&:hover {

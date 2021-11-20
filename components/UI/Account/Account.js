@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useStateContext } from '../../HBOProvider';
 import { useRouter } from 'next/router';
-
+import ls from 'local-storage';
 
 
 
@@ -62,7 +62,11 @@ const Account = (props) => {
   }
 
 
-
+  // to signout user we delete the user off LS
+  const signOut = () => {
+    ls.remove('users');
+    router.push(`/create`)
+  }
 
 
 
@@ -86,10 +90,10 @@ const Account = (props) => {
         <div className="side-nav__divider" />
         <ul className="account__main">
           <li>
-            <a href="/">Account</a>
+            <a>Account</a>
           </li>
           <li>
-            <a href="/">Sign Out</a>
+            <a onClick={signOut}>Sign Out</a>
           </li>
         </ul>
       </div>
