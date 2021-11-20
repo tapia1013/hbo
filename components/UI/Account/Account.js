@@ -25,6 +25,29 @@ const Account = (props) => {
 
 
 
+  // To check if loading the who list
+  const showWatchList = () => {
+    return globalState.watchList.map((item, index) => {
+      return (
+        <div className="account__watch-video">
+          <img src="https://m.media-amazon.com/images/M/MV5BM2M2NDIzOTItZDA1Yy00M2Q4LTk3ZjctZjZmZjUyZWMxM2YyXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_.jpg" />
+          <div className="account__watch-overlay">
+            <div className="account__watch-buttons">
+              <div className="account__watch-circle">
+                <i className="fas fa-play" />
+              </div>
+              <div className="account__watch-circle">
+                <i className="fas fa-times" />
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    })
+  }
+  // video 30 add watchlist feature 30:03g
+
+
   return (
     <div
       className={`account ${globalState.accountModalOpen ? 'account--active' : ''}`}
@@ -32,19 +55,9 @@ const Account = (props) => {
       <div className="account__details">
         <div className="account__title">My List</div>
         <div className="account__watch-list">
-          <div className="account__watch-video">
-            <img src="https://m.media-amazon.com/images/M/MV5BM2M2NDIzOTItZDA1Yy00M2Q4LTk3ZjctZjZmZjUyZWMxM2YyXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_.jpg" />
-            <div className="account__watch-overlay">
-              <div className="account__watch-buttons">
-                <div className="account__watch-circle">
-                  <i className="fas fa-play" />
-                </div>
-                <div className="account__watch-circle">
-                  <i className="fas fa-times" />
-                </div>
-              </div>
-            </div>
-          </div>
+
+
+
         </div>
       </div>
 
