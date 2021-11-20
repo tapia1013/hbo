@@ -1,10 +1,13 @@
 import { useEffect } from 'react'
 import { useStateContext } from '../../HBOProvider';
+import { useRouter } from 'next/router';
+
 
 
 
 const Account = (props) => {
   const globalState = useStateContext();
+  const router = useRouter();
 
   // const loopComp = (comp, digit) => {
   //   const thumbnails = [];
@@ -24,19 +27,31 @@ const Account = (props) => {
   }, [globalState.accountModalOpen])
 
 
+  const watchMedia = (url) => {
+    router.push(url);
+    // close the account modal when we click on play in watchlist modal
+    globalState.setAccountModalOpenAction(!globalState.accountModalOpen)
+  }
+
 
   // To check if loading the who list
   const showWatchList = () => {
     return globalState.watchList.map((item, index) => {
       return (
-        <div className="account__watch-video">
-          <img src="https://m.media-amazon.com/images/M/MV5BM2M2NDIzOTItZDA1Yy00M2Q4LTk3ZjctZjZmZjUyZWMxM2YyXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_.jpg" />
+        <div className="account__watch-video" key={index}>
+          <img src={item.mediaUrl} />
           <div className="account__watch-overlay">
             <div className="account__watch-buttons">
-              <div className="account__watch-circle">
+              <div
+                className="account__watch-circle"
+                onClick={() => watchMedia(`/${item.mediaType}/${item.mediaId}`)}
+              >
                 <i className="fas fa-play" />
               </div>
-              <div className="account__watch-circle">
+              <div
+                className="account__watch-circle"
+                onClick={() => globalState.removeFromList(item.mediaId)}
+              >
                 <i className="fas fa-times" />
               </div>
             </div>
@@ -45,7 +60,10 @@ const Account = (props) => {
       )
     })
   }
-  // video 30 add watchlist feature 30:03g
+
+
+
+
 
 
   return (
@@ -55,9 +73,7 @@ const Account = (props) => {
       <div className="account__details">
         <div className="account__title">My List</div>
         <div className="account__watch-list">
-
-
-
+          {globalState.watchList !== null ? showWatchList() : 'No Movies Added'}
         </div>
       </div>
 

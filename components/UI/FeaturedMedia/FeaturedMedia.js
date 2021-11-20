@@ -65,7 +65,8 @@ const FeaturedMedia = (props) => {
             <div className="featured-media__play-btn" onClick={clickedPlay}>
               <i className="fas fa-play" />
             </div>
-            <div className="featured-media__add-btn" onClick={() => clickedAdd(props)}>
+            <div
+              className={`featured-media__add-btn ${props.type !== 'single' ? 'hide-comp' : ''}`} onClick={() => clickedAdd(props)}>
               <i className="fas fa-plus" />
             </div>
             <div
