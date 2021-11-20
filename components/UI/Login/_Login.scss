@@ -95,3 +95,22 @@
   }
   
 }
+
+
+
+@media screen and (max-width: 600px) {
+  .login-user {
+    
+    &__buttons {
+    margin-bottom: 10rem;  
+    }
+    
+    &__user-box:nth-child(1) {
+      margin-right: 0 !important;
+    }
+  }
+}
+
+
+
+

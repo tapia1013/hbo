@@ -125,3 +125,25 @@
   }
   
 }
+
+
+
+
+
+// mobile responsive
+@media only screen and(max-width: 600px) {
+  .create-user {
+    height: 87vh;
+    
+    &__form {
+      flex-direction: column;
+    }
+    
+    &__user-img {
+      margin-right: 0;
+    }
+  }
+}
+
+
+

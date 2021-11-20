@@ -123,3 +123,61 @@
   }
   
 }
+
+
+
+
+
+
+// Responsive Mobile
+@media only screen and (max-width:600px) {
+  .search-modal {
+    width: 100%;
+    padding: 20px;
+    
+    &__input {
+      margin-top: 50px;
+      width: 100%;
+      font-size: 1.9rem;
+    }
+    
+    &__close-btn {
+      font-size: 1.9rem;
+    }
+    
+    
+    
+    
+    
+     &__thumbnails{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+  }
+  
+    &__thumbnail {
+      width: 240px;
+      height: 360px;
+      position: relative;
+      margin-right: 10px;
+      opacity: 0;
+      
+      img {
+        width: 240px;
+        height: 360px;
+        object-fit: cover;
+        object-position: center;
+        flex-shrink: 0;
+      }
+  }
+    
+    
+    
+    
+  }
+}
+
+
+

@@ -198,7 +198,19 @@
       width: 450px;
       height: 253px;
     }
-  }
-  
-  
+  } 
 }
+
+
+
+
+// mobile responsive
+@media only screen and (max-width: 600px) {
+  .media-row {
+    padding: 20px 30px 20px 20px;
+  }
+}
+
+
+
+
