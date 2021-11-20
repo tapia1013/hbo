@@ -14,6 +14,15 @@ const FeaturedMedia = (props) => {
     // console.log('Send user to media page... ' + props.mediaUrl);
   }
 
+
+
+  const clickedAdd = (props) => {
+    globalState.addToList({ mediaId: props.mediaId, mediaType: props.mediaType, mediaUrl: props.mediaUrl })
+    console.log('Clicked To Add Movie');
+  }
+
+
+
   const showMedia = () => {
     if (props.type === 'front') {
       return (
@@ -55,6 +64,9 @@ const FeaturedMedia = (props) => {
           <div className="featured-media__buttons">
             <div className="featured-media__play-btn" onClick={clickedPlay}>
               <i className="fas fa-play" />
+            </div>
+            <div className="featured-media__add-btn" onClick={() => clickedAdd(props)}>
+              <i className="fas fa-plus" />
             </div>
             <div
               className={`featured-media__info-btn ${props.type === 'single' ? 'hide-comp' : ''}`}

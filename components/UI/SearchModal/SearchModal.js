@@ -111,6 +111,7 @@ const SearchModal = (props) => {
         }
       </h3>
 
+
       <div className='search-modal__thumbnails'>
         {
           showResults && searchData.length >= 1

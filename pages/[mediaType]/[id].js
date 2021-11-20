@@ -32,9 +32,6 @@ export default function SingleMediaPage(props) {
 
   // }, [mediaData]); // if we dont enter mediaData when we click on a new movie it wont show but the url will change
 
-
-
-
   return AuthCheck(
     <MainLayout>
       <FeaturedMedia
@@ -43,9 +40,14 @@ export default function SingleMediaPage(props) {
         location='In theaters and on HBO MAX. Streaming throughout May 23.'
         linkUrl="/movies/id"
         type="single"
+        mediaType={props.query.mediaType}
+        mediaId={props.query.id}
       />
 
-      <LazyLoad offset={-400} placeholder={<Placeholders title="Movies" type="large-v" />}>
+      <LazyLoad
+        offset={-400}
+        placeholder={<Placeholders title="Movies" type="large-v" />}
+      >
         <MediaRow
           updateData={props.query.id}
           title="Similar To This"
@@ -72,7 +74,7 @@ export async function getServerSideProps(context) {
   } catch (error) {
     console.log(error);
   }
-
+  1
   return {
     props: {
       // do not pass a function here
